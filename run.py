@@ -74,19 +74,19 @@ def search():
         rdb = request.form['ricerca']
 	if (stringa.find(str) == -1):
                 if 'titolo' in request.form.values():
-                        cur.execute("select * from libreria where titolo = %s;",[stringa])
+                        cur.execute("select * from libreria where titolo like %s;",[stringa])
                 elif 'autore' in request.form.values():
-                        cur.execute("select * from libreria where autore = %s;",[stringa])
+                        cur.execute("select * from libreria where autore like %s;",[stringa])
                 elif 'genere' in request.form.values():
-                        cur.execute("select * from libreria where genere = %s;",[stringa])
+                        cur.execute("select * from libreria where genere like %s;",[stringa])
                 elif 'casa' in request.form.values():
-                        cur.execute("select * from libreria where casa_editrice = %s;",[stringa])
+                        cur.execute("select * from libreria where casa_editrice like %s;",[stringa])
                 listalibri = cur.fetchall()
                 conn.commit()
                 conn.close()
                 return render_template('search.html',listalibri=listalibri)
         else:
-                return render_template('search.html',listalibri=[])
+                return render_template('search.html',messaggio='Nothing with that pattern was found',listalibri=[])
 
 
 @app.route("/show", methods=['GET','POST'])
