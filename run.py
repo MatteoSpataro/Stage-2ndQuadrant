@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 app = Flask(__name__)
 import psycopg2
-
+#commento test2
 campi = [True,True,True,True,True,True]
 conn = psycopg2.connect(database="biblioteca", user="postgres", host="192.168.3.228", port="5432")
 
