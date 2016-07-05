@@ -2,7 +2,6 @@
 <html lang="it">
 <head>
 <STYLE>
-#centro { width: 240px; margin: 0 auto; }
 #pulsante {
         outline: none;
         cursor: pointer;
@@ -37,25 +36,62 @@
     0px 2px 0px 0px rgba(0,0,0,.15);
     top: 3px;
 }
+#pulsante2 {
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font: bold 14px Arial, Helvetica, sans-serif;
+        color: #fff;
+        padding: 10px 15px;
+        border: solid 1px #0076a3;
+        background: #0095cd;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+        border-radius: 15px;
+        -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        box-shadow:
+            0px 0px 0px 1px #4e8381 inset,
+            0px 0px 0px 2px #74b6b4 inset,
+            0px 4px 0px 0px #4a7c7b,
+            0px 5px 0px 0px #355655,
+            0px 5px 0px 0px rgba(0,0,0,.15);
+}
 
+#pulsante2:hover {
+    background-color: #0095cd;
+}
+
+#pulsante2:active {
+    background-color: #0095cd;
+    box-shadow:
+    0px 0px 0px 1px #589391 inset,
+    0px 0px 0px 0px #4a7c7b,
+    0px 1px 0px 0px #355655,
+    0px 2px 0px 0px rgba(0,0,0,.15);
+    top: 3px;
+}
 </STYLE>
 <title>Library</title>
-<h1 align="center"><b>Library</b></h1>
 </head>
 <body style='background:url(https://upload.wikimedia.org/wikipedia/commons/8/89/Peralada_-_Convent_del_Carme_-_Biblioteca.JPG);background-size:$
-<form name="form" method="post" action="/">
-        <br>
         <div align="center">
-        <input type="checkbox" name="cbox1" value="titolo"> Title
+        <form name="form" method="post" action="/search">
+                <input type="text" name="search" value=""/>
+                <input type="submit" id="pulsante2" value="SEARCH"/>
+        </form>
+        <br>
+        <form name="form" method="post" action="/">
+        <h3><input type="checkbox" name="cbox1" value="titolo"> Title
         <input type="checkbox" name="cbox2" value="autore"> Author
         <input type="checkbox" name="cbox3" value="genere"> Genre
         <input type="checkbox" name="cbox4" value="casa"> Publishing house
         <input type="checkbox" name="cbox5" value="anno"> Year of publication
         <input type="checkbox" name="cbox6" value="prezzo"> Price
-        &nbsp&nbsp
-        <input type="submit" id="pulsante" value="PRINT"/><br><br><br>
+        <input type="submit" id="pulsante" value="REFRESH"/></h3><br><br>
         <table border="1" bgcolor="#ffa500" cellpadding="5">
-                <tr align="center"align="center">
+                <tr align="center">
                         {%if campi[0]==True%}
                         <td><b>Title</b></td>
                         {% endif %}
@@ -79,25 +115,25 @@
                 <tr align="center">
                         {% set i = 0 %}
                         {% for a in libro %}
-                                        {%if campi[i]==True%}
-                                        <td>{{a}}</td>
-                                        {% endif %}
-                                  {% set i = i + 1 %}
+                                {%if campi[i]==True%}
+                                    <td>{{a}}</td>
+                                {% endif %}
+                                {% set i = i + 1 %}
                         {% endfor %}
                 </tr>
                 {% endfor%}
         </table>
-        </div>
         <br><br>
         </form>
-        <form name="form" method="post" action="/search">
-                <div align="center">
-                <input type="text" name="search" value=""/><input type="submit" id="pulsante" value="SEARCH"/>
-                <br><br>
-                <a id="pulsante" href="/add">ADD</a>
-                <br><br>
-                <h3>{{messaggio}}</h3>
-                </div>
+                <form name="form" method="post" action="/delete">
+                        <input type="text" name="delete" value=""/>
+                        <input type="submit" id="pulsante" value="DELETE"/>
+                        <br><br>
+                        <a id="pulsante" href="/add">ADD</a>
+                        <br><br>
+                        <h2><b>{{messaggio}}</b></h2>
+                </form>
         </form>
+        </div>
    </body>
 </html>
