@@ -84,7 +84,6 @@ def delete():
                 return render_template('delete.html',messaggio='Error input fields',listalibri=listalibri)
 
 
-
 @app.route("/search", methods=['GET','POST'])
 def search():
     str = ';'
@@ -96,23 +95,16 @@ def search():
         stringa = request.form['search'].strip(' ')
         campi = [True,True,True,True,True,True]
         if (stringa.find(str) == -1):
-                cur.execute("select * from libreria where titolo like %s;",[stringa])
+                stringa = '%'+stringa+'%'
+                cur.execute("select * from libreria where titolo like %s or autore like %s or genere like %s or casa_editrice like %s;",(string$
                 lista = cur.fetchall()
                 listalibri = lista
-                cur.execute("select * from libreria where autore like %s;",[stringa])
-                lista = cur.fetchall()
-                listalibri = listalibri + lista
-                cur.execute("select * from libreria where genere like %s;",[stringa])
-                lista = cur.fetchall()
-                listalibri = listalibri + lista
-                cur.execute("select * from libreria where casa_editrice like %s;",[stringa])
-                lista = cur.fetchall()
-                listalibri = listalibri + lista
                 conn.commit()
                 conn.close()
                 return render_template('index.nginx-debian.html',messaggio=' ',listalibri=listalibri,campi=campi)
         else:
-                return render_template('index.nginx-debian.html',messaggio='Nothing with that pattern was found',listalibri=[],campi=campi)
+                return render_template('index.nginx-debian.html',messaggio='Error input fields',listalibri=[],campi=campi)
 
 if __name__ == '__main__':
    app.run(host='192.168.3.229')
+
