@@ -87,11 +87,17 @@
                 </tr>
                 {% endfor%}
         </table>
-        <br><br>
-        <input type="text" name="search" value=""><input type="submit" id="pulsante" value="SEARCH"/>
-        <br><br>
-        <a id="pulsante" href="/add">ADD</a>
         </div>
-</form>
+        <br><br>
+        </form>
+        <form name="form" method="post" action="/search">
+                <div align="center">
+                <input type="text" name="search" value=""/><input type="submit" id="pulsante" value="SEARCH"/>
+                <br><br>
+                <a id="pulsante" href="/add">ADD</a>
+                <br><br>
+                <h3>{{messaggio}}</h3>
+                </div>
+        </form>
    </body>
 </html>
