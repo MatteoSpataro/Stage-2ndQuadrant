@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<STYLE>
+#centro { width: 240px; margin: 0 auto; }
+#pulsante {
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font: bold 20px Arial, Helvetica, sans-serif;
+        color: #fff;
+        padding: 10px 20px;
+        border: solid 1px #0076a3;
+        background: #0095cd;
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+        border-radius: 20px;
+        -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        box-shadow:
+            0px 0px 0px 1px #4e8381 inset,
+            0px 0px 0px 2px #74b6b4 inset,
+            0px 4px 0px 0px #4a7c7b,
+            0px 5px 0px 0px #355655,
+            0px 5px 0px 0px rgba(0,0,0,.15);
+}
+#pulsante:hover {
+    background-color: #0095cd;
+}
+#pulsante:active {
+    background-color: #0095cd;
+    box-shadow:
+    0px 0px 0px 1px #589391 inset,
+    0px 0px 0px 0px #4a7c7b,
+    0px 1px 0px 0px #355655,
+    0px 2px 0px 0px rgba(0,0,0,.15);
+    top: 3px;
+}
+</STYLE>
+<title>Library</title>
+<h1 align="center"><b>Add a book</b></h1>
+</head>
+<body style='background:url(https://leseg.files.wordpress.com/2014/04/12173430716_5f1c66b63c_o.jpg);background-size:cover'>
+<FORM NAME="FORM1" ACTION="/add" METHOD="POST">
+        <div align="center">
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <b>Title:</b>
+                  <input type="text" name="titolo"><br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <b>Author:</b>
+                  <input type="text" name="autore"><br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <b>Genre:</b>
+                  <input type="text" name="genere"><br><br>
+                  <b>Publishing house:</b>
+                  <input type="text" name="casa"><br><br>
+                  <b>Published:</b>
+                  <input type="number" name="anno" min="1000" max="2020" value="2016"><br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Price:</b>
+                        <input type="number" name="prezzo" min="1" max="1000" value="15">
+                  <br><br>
+
+        <input id="pulsante" type="submit" value="ADD"/><br><br>
+        <h3>{{messaggio}}</h3>
+        <a id="pulsante" href="/">HOME</a>
+</div>
+</FORM>
+   </body>
+</html>
