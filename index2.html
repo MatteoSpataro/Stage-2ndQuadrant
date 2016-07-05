@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<STYLE>
+#centro { width: 240px; margin: 0 auto; }
+#pulsante {
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font: bold 20px Arial, Helvetica, sans-serif;
+        color: #fff;
+        padding: 10px 20px;
+        border: solid 1px #0076a3;
+        background: #0095cd;
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+        border-radius: 20px;
+        -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        box-shadow:
+            0px 0px 0px 1px #4e8381 inset,
+            0px 0px 0px 2px #74b6b4 inset,
+            0px 4px 0px 0px #4a7c7b,
+            0px 5px 0px 0px #355655,
+            0px 5px 0px 0px rgba(0,0,0,.15);
+}
+#pulsante:hover {
+    background-color: #0095cd;
+}
+#pulsante:active {
+    background-color: #0095cd;
+    box-shadow:
+    0px 0px 0px 1px #589391 inset,
+    0px 0px 0px 0px #4a7c7b,
+    0px 1px 0px 0px #355655,
+    0px 2px 0px 0px rgba(0,0,0,.15);
+    top: 3px;
+}
+
+</STYLE>
+<title>Library</title>
+<h1 align="center"><b>Library</b></h1>
+</head>
+<body style='background:url(https://upload.wikimedia.org/wikipedia/commons/8/89/Peralada_-_Convent_del_Carme_-_Biblioteca.JPG);background-size:$
+<form name="form" method="post" action="/">
+        <br>
+        <div align="center">
+        <input type="checkbox" name="cbox1" value="titolo"> Title
+        <input type="checkbox" name="cbox2" value="autore"> Author
+        <input type="checkbox" name="cbox3" value="genere"> Genre
+        <input type="checkbox" name="cbox4" value="casa"> Publishing house
+        <input type="checkbox" name="cbox5" value="anno"> Year of publication
+        <input type="checkbox" name="cbox6" value="prezzo"> Price
+        &nbsp&nbsp
+        <input type="submit" id="pulsante" value="PRINT"/><br><br><br>
+        <table border="1" bgcolor="#ffa500" cellpadding="5">
+                <tr align="center"align="center">
+                        {%if campi[0]==True%}
+                        <td><b>Title</b></td>
+                        {% endif %}
+                        {%if campi[1]==True%}
+                        <td><b>Author</b></td>
+                        {% endif %}
+                        {%if campi[2]==True%}
+                        <td><b>Genre</b></td>
+                        {% endif %}
+                        {%if campi[3]==True%}
+                        <td><b>Publishing house</b></td>
+                        {% endif %}
+                        {%if campi[4]==True%}
+                        <td><b>Year of publication</b></td>
+                        {% endif %}
+                        {%if campi[5]==True%}
+                        <td><b>Price</b></td>
+                        {% endif %}
+                </tr>
+                {% for libro in listalibri %}
+                <tr align="center">
+                        {% set i = 0 %}
+                        {% for a in libro %}
+                                        {%if campi[i]==True%}
+                                        <td>{{a}}</td>
+                                        {% endif %}
+                                  {% set i = i + 1 %}
+                        {% endfor %}
+                </tr>
+                {% endfor%}
+        </table>
+        <br><br>
+        <input type="text" name="search" value=""><input type="submit" id="pulsante" value="SEARCH"/>
+        <br><br>
+        <a id="pulsante" href="/add">ADD</a>
+        </div>
+</form>
+   </body>
+</html>
