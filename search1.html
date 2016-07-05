@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<STYLE>
+#centro { width: 240px; margin: 0 auto; }
+#pulsante {
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font: bold 20px Arial, Helvetica, sans-serif;
+        color: #fff;
+        padding: 10px 20px;
+        border: solid 1px #0076a3;
+        background: #0095cd;
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+        border-radius: 20px;
+        -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        box-shadow:
+            0px 0px 0px 1px #4e8381 inset,
+            0px 0px 0px 2px #74b6b4 inset,
+            0px 4px 0px 0px #4a7c7b,
+            0px 5px 0px 0px #355655,
+            0px 5px 0px 0px rgba(0,0,0,.15);
+}
+#pulsante:hover {
+    background-color: #0095cd;
+}
+#pulsante:active {
+    background-color: #0095cd;
+    box-shadow:
+    0px 0px 0px 1px #589391 inset,
+    0px 0px 0px 0px #4a7c7b,
+    0px 1px 0px 0px #355655,
+    0px 2px 0px 0px rgba(0,0,0,.15);
+    top: 3px;
+}
+</STYLE>
+<title>Library</title>
+<h1 align="center"><b>Search by...</b></h1>
+</head>
+<body style='background:url(https://leseg.files.wordpress.com/2014/04/12173430716_5f1c66b63c_o.jpg);background-size:cover'>
+<FORM NAME="FORM1" ACTION="URL - SCRIPT" METHOD="POST">
+        <div align="center">
+        <input type="radio" name="ricerca" value="titolo" checked> Title
+        <input type="radio" name="ricerca" value="autore"> Author
+        <input type="radio" name="ricerca" value="genere"> Genre
+        <input type="radio" name="ricerca" value="casa"> Publishing house
+        <br><br><br><input type="text" name="ricerca">
+        <input id="pulsante" type="subtmit" value="SEARCH"/><br><br>
+        <a id="pulsante" href="/">HOME</a>
+</div>
+</FORM>
+   </body>
+</html>
